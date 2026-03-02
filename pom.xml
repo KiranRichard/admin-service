@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.online.bus.ticket.reservation</groupId>
-	<artifactId>admin</artifactId>
+	<artifactId>admin-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>admin-service</name>
 	<description>admin-service microservice for online bus ticket reservation application</description>
@@ -73,6 +73,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

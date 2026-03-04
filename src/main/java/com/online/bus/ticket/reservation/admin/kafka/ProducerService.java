@@ -12,7 +12,19 @@ public class ProducerService {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendMessage(String message) {
-        kafkaTemplate.send("test-topic", message);
+    public void sendMessageForInsert(String message) {
+        kafkaTemplate.send("admin-topic-insert", message);
     }
+
+    public void sendMessageForUpdate(String message) {
+        kafkaTemplate.send("admin-topic-update", message);
+    }
+
+    public void sendMessageForDelete(String message) {
+        kafkaTemplate.send("admin-topic-delete", message);
+    }
+
+//    public void sendMessage(String message) {
+//        kafkaTemplate.send("test-topic", message);
+//    }
 }

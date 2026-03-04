@@ -1,10 +1,10 @@
 package com.online.bus.ticket.reservation.admin.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.online.bus.ticket.reservation.admin.model.BusRoute;
 import com.online.bus.ticket.reservation.admin.request.BusRouteRequest;
 import com.online.bus.ticket.reservation.admin.service.BusRouteService;
 import com.online.bus.ticket.reservation.admin.validator.BusRouteRequestValidator;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ public class BusRouteController {
     private BusRouteRequestValidator busRouteRequestValidator;
 
     @PostMapping
-    public BusRoute createBusRoute(@RequestBody BusRouteRequest busRouteRequest) {
+    public BusRoute createBusRoute(@RequestBody BusRouteRequest busRouteRequest) throws JsonProcessingException {
         log.info("Inside BusRouteController createBusRoute Method");
         busRouteRequestValidator.validateBusRouteRequest(busRouteRequest);
         return busRouteService.createBusRoute(busRouteRequest);
@@ -42,7 +42,7 @@ public class BusRouteController {
     }
 
     @PutMapping("/{busRouteNumber}")
-    public BusRoute editBusRoute(@RequestBody BusRouteRequest busRouteRequest, @PathVariable("busRouteNumber") long busRouteNumber) {
+    public BusRoute editBusRoute(@RequestBody BusRouteRequest busRouteRequest, @PathVariable("busRouteNumber") long busRouteNumber) throws JsonProcessingException {
         log.info("Inside BusRouteController editBusRoute Method with busRouteNumber: {}", busRouteNumber);
         busRouteRequestValidator.validateBusRouteNumber(busRouteNumber);
         busRouteRequestValidator.validateBusRouteRequest(busRouteRequest);
@@ -50,7 +50,7 @@ public class BusRouteController {
     }
 
     @DeleteMapping("/{busRouteNumber}")
-    public void deleteBusRoute(@PathVariable("busRouteNumber") long busRouteNumber) {
+    public void deleteBusRoute(@PathVariable("busRouteNumber") long busRouteNumber) throws JsonProcessingException {
         log.info("Inside BusRouteController deleteBusRoute Method with busRouteNumber: {}", busRouteNumber);
         busRouteRequestValidator.validateBusRouteNumber(busRouteNumber);
         busRouteService.deleteBusRoute(busRouteNumber);

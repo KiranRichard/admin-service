@@ -6,6 +6,7 @@ import com.online.bus.ticket.reservation.admin.service.BusRouteService;
 import com.online.bus.ticket.reservation.admin.validator.BusRouteRequestValidator;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,11 +14,12 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/admin/busRoutes")
-@AllArgsConstructor
 public class BusRouteController {
 
-    private final BusRouteService busRouteService;
-    private final BusRouteRequestValidator busRouteRequestValidator;
+    @Autowired
+    private BusRouteService busRouteService;
+    @Autowired
+    private BusRouteRequestValidator busRouteRequestValidator;
 
     @PostMapping
     public BusRoute createBusRoute(@RequestBody BusRouteRequest busRouteRequest) {

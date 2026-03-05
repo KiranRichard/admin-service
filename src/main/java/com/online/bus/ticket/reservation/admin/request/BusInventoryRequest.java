@@ -7,4 +7,5 @@ public class BusInventoryRequest {
     private long busRouteNumber;
     private int totalSeats;
     private int availableSeats;
+    private double price;
 }

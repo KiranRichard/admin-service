@@ -38,6 +38,7 @@ public class BusRouteService {
         busInventoryRequest.setBusRouteNumber(savedBusRoute.getBusRouteNumber());
         busInventoryRequest.setTotalSeats(savedBusRoute.getTotalSeats());
         busInventoryRequest.setAvailableSeats(savedBusRoute.getTotalSeats());
+        busInventoryRequest.setPrice(savedBusRoute.getPrice());
         String jsonMessage = objectMapper.writeValueAsString(busInventoryRequest);
 
         producerService.sendMessageForInsert(jsonMessage);
@@ -67,6 +68,7 @@ public class BusRouteService {
         busInventoryRequest.setBusRouteNumber(savedBusRoute.getBusRouteNumber());
         busInventoryRequest.setTotalSeats(savedBusRoute.getTotalSeats());
         busInventoryRequest.setAvailableSeats(savedBusRoute.getTotalSeats());//need to check the logic here
+        busInventoryRequest.setPrice(savedBusRoute.getPrice());
         String jsonMessage = objectMapper.writeValueAsString(busInventoryRequest);
 
         producerService.sendMessageForUpdate(jsonMessage);
@@ -84,6 +86,7 @@ public class BusRouteService {
         busInventoryRequest.setBusRouteNumber(busRoute.getBusRouteNumber());
         busInventoryRequest.setTotalSeats(busRoute.getTotalSeats());
         busInventoryRequest.setAvailableSeats(busRoute.getTotalSeats());
+        busInventoryRequest.setPrice(busRoute.getPrice());
 
         String jsonMessage = objectMapper.writeValueAsString(busInventoryRequest);
 

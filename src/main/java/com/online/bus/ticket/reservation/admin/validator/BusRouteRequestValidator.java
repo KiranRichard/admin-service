@@ -14,8 +14,8 @@ public class BusRouteRequestValidator {
 
     public void validateBusRouteRequest(BusRouteRequest busRouteRequest) {
         if (Objects.isNull(busRouteRequest)) {
-            log.info("[Error]: Invalid Create busRoute request: {}", busRouteRequest);
-            throw new RequiredFieldsMissingException("Invalid Create busRoute request: {}"+ busRouteRequest);
+            log.info("[Error]: Invalid Create busRoute request is null");
+            throw new RequiredFieldsMissingException("Invalid Create busRoute request is null");
         }
         if (StringUtils.isBlank(busRouteRequest.getSource())) {
             log.info("[Error]: Invalid source field in create busRoute request: {}", busRouteRequest);

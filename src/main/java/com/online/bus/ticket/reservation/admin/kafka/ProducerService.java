@@ -23,8 +23,4 @@ public class ProducerService {
     public void sendMessageForDelete(String message) {
         kafkaTemplate.send("admin-topic-delete", message);
     }
-
-//    public void sendMessage(String message) {
-//        kafkaTemplate.send("test-topic", message);
-//    }
 }

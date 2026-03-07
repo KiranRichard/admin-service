@@ -12,3 +12,4 @@ public class BusRouteException extends RuntimeException {
         super(errorMessage);
     }
 }
+
